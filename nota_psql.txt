@@ -1,0 +1,79 @@
+COMANDOS BÁSICOS DO POSTGRESQL E PSQL
+
+
+ACESSANDO O PSQL:
+
+- Para acessar o psql, uma ferramenta de administração do PostgreSQL, execute o seguinte comando:
+
+bash
+
+    psql -U nomeuser nomebanco
+
+- Substitua nomeuser pelo nome do usuário e nomebanco pelo nome do banco de dados que você deseja acessar. No Windows ou outros sistemas operacionais, o processo é similar.
+
+
+PAR"METROS DE CONEXÃO:
+
+    -h host -p port -U user -W: Permite conectar ao psql com par"metros específicos, como host, porta, usuário e solicitação de senha.
+
+
+OBTER AJUDA:
+
+    comando --help: Exibe a ajuda para um comando específico.
+    man comando: No Unix, você também pode usar o comando man para acessar páginas de manual.
+
+COMANDOS DO PSQL:
+
+    \q: Sai do psql.
+    \c nomebanco nomeuser: Conecta a outro banco de dados.
+    \i /path/script.sql: Importa um script SQL.
+    \timing: Inicia/para o cronômetro para medição de atividades.
+    \dT+: Lista os tipos de dados do PostgreSQL com detalhes.
+    \d: Lista tabelas, índices, sequências ou views.
+    \d nometabela: Mostra a estrutura da tabela.
+    \dt: Lista tabelas.
+    \di: Lista índices.
+    \ds: Lista sequências.
+    \dv: Lista views.
+    \dS: Lista tabelas do sistema.
+    \dn: Lista esquemas.
+    \dp: Lista privilégios.
+    \du: Lista usuários.
+    \dg: Lista grupos.
+    \l: Lista todos os bancos do servidor, incluindo donos e codificações.
+    \e: Abre o editor vi com a última consulta.
+    \o nomearquivo: Inicia/termina a criação de um arquivo para saída.
+    \! comando_sistema: Executa um comando do sistema operacional.
+    \?: Exibe ajuda geral dos comandos do psql.
+    \h *: Exibe ajuda de todos os comandos.
+    \h comandosql: Exibe ajuda específica sobre um comando SQL.
+    \H: Ativa/desativa a saída em HTML.
+    \encoding: Exibe a codificação atual.
+
+
+EXEMPLOS ÚTEIS:
+
+    \h CREATE DATABASE: Exibe ajuda sobre o comando CREATE DATABASE.
+    \h CREATE ROLE: Exibe ajuda sobre o comando CREATE ROLE.
+
+
+GERANDO RELATÓRIOS EM HTML:
+
+- Para gerar um relatório em HTML diretamente através do PostgreSQL:
+
+bash
+
+    \o relatorio.html
+    SELECT * FROM cep_tabela WHERE uf='CE';
+
+- Isso criará um arquivo HTML contendo os registros retornados pela consulta.
+
+
+EXECUTANDO CONSULTAS E SALVANDO RESULTADOS:
+
+- Para executar uma consulta e salvar o resultado em um arquivo:
+
+bash
+
+    psql nomebanco usuario -c "SELECT nome_coluna FROM nome_tabela WHERE ativo='A'" > /var/tmp/arquivo_com_resultado.txt
+
